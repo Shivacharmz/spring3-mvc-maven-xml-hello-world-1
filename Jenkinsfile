@@ -13,7 +13,7 @@ pipeline {
         // Where your Nexus is running
         NEXUS_URL = "100.26.53.5:8081"
         // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = "devops"
+        NEXUS_REPOSITORY = "Devops"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "admin"
     }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     // Let's clone the source
-                    git 'https://github.com/Shivacharmz/spring3-mvc-maven-xml-hello-world-1.git';
+                    git branch: 'master',credentialsId: 'github-account', url: 'https://github.com/Shivacharmz/spring3-mvc-maven-xml-hello-world-1.git';
                 }
             }
         }
