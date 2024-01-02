@@ -15,7 +15,7 @@ pipeline {
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "Devops"
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "admin"
+        NEXUS_CREDENTIAL_ID = "nexus_server"
     }
     stages {
         stage("clone code") {
@@ -57,7 +57,7 @@ pipeline {
 			    groupId: pom.groupId,
                             version: '${BUILD_NUMBER}',
                             repository: NEXUS_REPOSITORY,
-                            credentialsId: NEXUS_CREDENTIAL_ID,
+                            credentialsId: nexus_server,
                             artifacts: [
                                 // Artifact generated such as .jar, .ear and .war files.
                                 [artifactId: pom.artifactId,
